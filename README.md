@@ -36,24 +36,63 @@ Diff = A ⊕ B ⊕ Bin
 
 Borrow out = A'Bin + A'B + BBin
 
-**Truthtable**
-
 **Procedure**
 
-Write the detailed procedure here
+Full Adder:
+
+1. Open Quartus II and create a new project.
+2. Use schematic design entry to draw the full adder circuit.
+3. The circuit consists of XOR, AND, and OR gates.
+4. Compile the design, verify its functionality through simulation.
+5. Implement the design on the target device and program it.
+
+Full Subtractor: 
+
+1. Follow the same steps as for the full adder. 
+2. Draw the full subtractor circuit using schematic design.
+3. The circuit includes XOR, AND, OR gates to perform subtraction.
+4. Compile, simulate, implement, and program the design similarly to the full adder.
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+
+Developed by: RegisterNumber: 212223240051 */
+
+```
+
+//full adder
+module fulladd(sum,cout,a,b,cin);
+   output sum;
+	output cout;
+	input a;
+	input b;
+	input cin;
+	
+	      //Internal nets
+ wire sl,cl,c2;
+
+  //Instantiate logic gate primitives
+ xor(sl,a,b);
+ and(cl,a,b);
+ xor(sum,sl,cin);
+ and(c2,sl,cin);
+ or(cout,c2,cl);
+ 
+ endmodule
+
+```
+
+![Screenshot 2024-03-18 115251](https://github.com/Hashwatha/FULL_ADDER_SUBTRACTOR/assets/150231431/fd391184-d09f-4ed1-a9df-9a673eb6d8ae)
 
 **RTL Schematic**
 
+![Screenshot 2024-03-18 115339](https://github.com/Hashwatha/FULL_ADDER_SUBTRACTOR/assets/150231431/c6da56d7-65bf-4c10-9263-1cc1aa23d4ae)
+
 **Output Timing Waveform**
+
+![output 2024-03-18 at 14 23 24_d4fdec91](https://github.com/Hashwatha/FULL_ADDER_SUBTRACTOR/assets/150231431/78831e18-109c-4754-94e8-f3913fc8ec95)
 
 **Result:**
 
 Thus the Full Adder and Full Subtractor circuits are designed and the truth tables is verified using Quartus software.
-
-
-
